@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://m061sid5ydhb"]
+
+[ext_resource type="Script" uid="uid://kpa6icrf6uyg" path="res://script/soccer_player.gd" id="1_wofl8"]
+[ext_resource type="Texture2D" uid="uid://b3q2l7fernkvk" path="res://image/berlusconi/corridore1.png" id="2_rlj36"]
+[ext_resource type="Texture2D" uid="uid://c5orlst8yeixk" path="res://image/berlusconi/corridore2.png" id="3_dvyx7"]
+[ext_resource type="Texture2D" uid="uid://7dkfi0jtmanj" path="res://image/berlusconi/corridore3.png" id="4_rwv8y"]
+[ext_resource type="Texture2D" uid="uid://cwxkrl2i3x6rp" path="res://image/berlusconi/corridore4.png" id="5_u7aiw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tj51r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rlj36")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dvyx7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rwv8y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_u7aiw")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ekg81"]
+size = Vector2(319, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ok5xy"]
+size = Vector2(237, 443.25)
+
+[node name="SoccerPlayer" type="CharacterBody2D" unique_id=316582523]
+scale = Vector2(0.3, 0.3)
+collision_layer = 4
+script = ExtResource("1_wofl8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2119226940]
+sprite_frames = SubResource("SpriteFrames_tj51r")
+animation = &"run"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1414805902]
+position = Vector2(-43.5, 237)
+shape = SubResource("RectangleShape2D_ekg81")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1136749828]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=249287901]
+position = Vector2(-23, -8)
+shape = SubResource("RectangleShape2D_ok5xy")
+debug_color = Color(1, 0, 0, 0.41960785)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=488550708]
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

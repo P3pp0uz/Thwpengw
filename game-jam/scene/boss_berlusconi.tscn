@@ -1,0 +1,227 @@
+[gd_scene format=3 uid="uid://cfipwnrka4pgn"]
+
+[ext_resource type="Texture2D" uid="uid://4redsqrh14ii" path="res://image/berlusconi/sfondo_berlusconi2.png" id="1_af0g3"]
+[ext_resource type="Script" uid="uid://c0cwrgcp1pten" path="res://script/boss_berlusconi.gd" id="1_t60dq"]
+[ext_resource type="PackedScene" uid="uid://be42w1k43wnax" path="res://scene/hud.tscn" id="1_xpker"]
+[ext_resource type="Texture2D" uid="uid://nl5us4samxly" path="res://image/berlusconi/sfondo_berlusconi.png" id="1_ymnsg"]
+[ext_resource type="PackedScene" uid="uid://dft2yshqfo0dh" path="res://scene/berlusconi.tscn" id="2_66pvb"]
+[ext_resource type="Texture2D" uid="uid://cnsa1mjqomfm6" path="res://image/berlusconi/statico1.png" id="2_i6ph1"]
+[ext_resource type="Texture2D" uid="uid://cv70qmkj3dmir" path="res://image/berlusconi/Parlamento.png" id="2_k50hc"]
+[ext_resource type="PackedScene" uid="uid://cb84joushd82x" path="res://scene/player.tscn" id="2_q6bf8"]
+[ext_resource type="Texture2D" uid="uid://bi03vovn23phc" path="res://image/berlusconi/statico2.png" id="3_invhs"]
+[ext_resource type="Texture2D" uid="uid://daq3cqjb45l4s" path="res://image/berlusconi/statico3.png" id="4_xpker"]
+[ext_resource type="Texture2D" uid="uid://c55spxylymkh4" path="res://image/berlusconi/statico4.png" id="5_r4tqo"]
+[ext_resource type="Texture2D" uid="uid://c4j1jktya7yb3" path="res://image/berlusconi/statico5.png" id="6_exyo4"]
+[ext_resource type="PackedScene" uid="uid://m061sid5ydhb" path="res://scene/SoccerPlayer.tscn" id="7_k50hc"]
+[ext_resource type="PackedScene" uid="uid://b88s75dm5jyn1" path="res://scene/OrsoPutin.tscn" id="8_3qhwe"]
+[ext_resource type="PackedScene" uid="uid://mwkm6bk7dyqr" path="res://scene/comic_attack.tscn" id="9_pcop5"]
+[ext_resource type="PackedScene" uid="uid://4tnurpqakok0" path="res://scene/fly_attack.tscn" id="10_c0rw3"]
+[ext_resource type="PackedScene" uid="uid://di6kvwofq2sdd" path="res://scene/kick_attack.tscn" id="10_exyo4"]
+[ext_resource type="PackedScene" uid="uid://bj25k1pwrrgcf" path="res://scene/projectile.tscn" id="10_invhs"]
+[ext_resource type="Texture2D" uid="uid://u8kc1jmh4hcd" path="res://image/berlusconi/greed.PNG" id="11_4wbyc"]
+[ext_resource type="PackedScene" uid="uid://cyunra6m438v1" path="res://scene/health_component.tscn" id="12_r4tqo"]
+[ext_resource type="Texture2D" uid="uid://byknjgghktekl" path="res://image/berlusconi/dash.PNG" id="12_unw5a"]
+[ext_resource type="Texture2D" uid="uid://yeky3eg5mfqb" path="res://image/berlusconi/Berlusca-1.png" id="15_8qcc4"]
+[ext_resource type="Texture2D" uid="uid://dy4q5fonpmema" path="res://image/berlusconi/Berlusca-2.png" id="16_t60dq"]
+[ext_resource type="Texture2D" uid="uid://dhqht2co31w8s" path="res://image/berlusconi/Berlusca-3.png" id="17_wh1ms"]
+[ext_resource type="Texture2D" uid="uid://cmhcqk3q05uy8" path="res://image/berlusconi/Berlusca-4.png" id="18_2ynyx"]
+[ext_resource type="Texture2D" uid="uid://kgjkl0w1k1py" path="res://image/berlusconi/Berlusca-5.png" id="19_k50hc"]
+[ext_resource type="Script" uid="uid://dbnppfmr38bh4" path="res://script/DephtSwitcher.gd" id="21_wh1ms"]
+[ext_resource type="Texture2D" uid="uid://c6i7636g2nkbw" path="res://image/maschere/Avidita.png" id="25_47qyo"]
+[ext_resource type="Texture2D" uid="uid://wcec7ko6o3ji" path="res://image/maschere/boss_fatti1.png" id="27_47qyo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c0rw3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_i6ph1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_invhs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xpker")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_r4tqo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_exyo4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_66pvb"]
+size = Vector2(972.5, 73)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_em30a"]
+size = Vector2(58, 618.5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3qhwe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_8qcc4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_t60dq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_wh1ms")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_2ynyx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_k50hc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_2ynyx"]
+a = Vector2(705, 182)
+b = Vector2(-99, 178)
+
+[node name="BossBerlusconi" type="Node2D" unique_id=97728032]
+script = ExtResource("1_t60dq")
+background_phase_2 = ExtResource("2_k50hc")
+
+[node name="HUD" parent="." unique_id=2064486473 instance=ExtResource("1_xpker")]
+offset = Vector2(0, 10)
+transform = Transform2D(1, 0, 0, 1, 0, 10)
+
+[node name="Berlusconi" parent="." unique_id=1255081874 node_paths=PackedStringArray("left_spawn_point", "right_spawn_point") instance=ExtResource("2_66pvb")]
+z_index = -10
+position = Vector2(485, 284)
+kick_scene = ExtResource("10_exyo4")
+left_spawn_point = NodePath("../BackgroundLayer/ArenaSpawnLeft")
+right_spawn_point = NodePath("../BackgroundLayer/ArenaSpawnRight")
+falling_kick_scene = ExtResource("10_c0rw3")
+soccer_player_scene = ExtResource("7_k50hc")
+nuovo_nemico_scene = ExtResource("8_3qhwe")
+comic_attack_scene = ExtResource("9_pcop5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Berlusconi" unique_id=1370263268]
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="Berlusconi/CanvasLayer" unique_id=146895764]
+offset_left = -171.0
+offset_top = -126.0
+offset_right = 1546.0
+offset_bottom = 823.0
+texture = ExtResource("2_i6ph1")
+expand_mode = 1
+
+[node name="BossDefeatedImage" type="TextureRect" parent="Berlusconi/CanvasLayer" unique_id=416430156]
+offset_left = -361.0
+offset_top = -286.0
+offset_right = 1559.0
+offset_bottom = 794.0
+texture = ExtResource("11_4wbyc")
+
+[node name="TransitionImage" type="TextureRect" parent="Berlusconi/CanvasLayer" unique_id=1438053411]
+offset_left = -369.0
+offset_top = -280.0
+offset_right = 1551.0
+offset_bottom = 800.0
+texture = ExtResource("12_unw5a")
+
+[node name="UnlockImage" type="TextureRect" parent="Berlusconi/CanvasLayer" unique_id=1248317166]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 27.0
+offset_top = 1.0
+offset_right = -41.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("27_47qyo")
+expand_mode = 1
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=1107589440]
+layer = -100
+
+[node name="Sfondo" type="TextureRect" parent="BackgroundLayer" unique_id=1837024113]
+z_index = -10
+anchors_preset = -1
+anchor_left = 0.069000006
+anchor_top = 0.119
+anchor_right = 0.79700005
+anchor_bottom = 0.82500005
+offset_left = -58.488007
+offset_top = -64.112
+offset_right = 213.85596
+offset_bottom = 103.39996
+texture = ExtResource("1_af0g3")
+expand_mode = 1
+
+[node name="ArenaSpawnLeft" type="Marker2D" parent="BackgroundLayer" unique_id=380565252]
+z_index = -5
+position = Vector2(43, 200)
+
+[node name="ArenaSpawnRight" type="Marker2D" parent="BackgroundLayer" unique_id=535509034]
+z_index = -5
+position = Vector2(948, 200)
+
+[node name="Tv" type="Sprite2D" parent="." unique_id=789174417]
+z_index = -1
+position = Vector2(574.49994, 322.00003)
+scale = Vector2(0.38752106, 0.38729024)
+texture = ExtResource("1_ymnsg")
+
+[node name="Statico" type="AnimatedSprite2D" parent="." unique_id=859557662]
+modulate = Color(1, 1, 1, 0.44705883)
+z_index = -2
+position = Vector2(584.625, 321.75)
+scale = Vector2(0.40160203, 0.40917262)
+sprite_frames = SubResource("SpriteFrames_c0rw3")
+autoplay = "default"
+frame_progress = 0.38208416
+metadata/_edit_use_anchors_ = true
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=1086319297 groups=["World"]]
+collision_mask = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=1900647148]
+position = Vector2(487.75, 610)
+shape = SubResource("RectangleShape2D_66pvb")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls" unique_id=2035929527]
+position = Vector2(1007, 314)
+shape = SubResource("RectangleShape2D_em30a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=894347619]
+position = Vector2(7, 314)
+shape = SubResource("RectangleShape2D_em30a")
+
+[node name="Player" parent="." unique_id=1814825663 instance=ExtResource("2_q6bf8")]
+position = Vector2(744, 517)
+collision_mask = 13
+projectile_scene = ExtResource("10_invhs")
+
+[node name="HealthComponent" parent="." unique_id=345123215 instance=ExtResource("12_r4tqo")]
+max_health = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1905664292]
+position = Vector2(486, 289)
+scale = Vector2(0.4017699, 0.4180157)
+sprite_frames = SubResource("SpriteFrames_3qhwe")
+
+[node name="Sprite2D2" type="Sprite2D" parent="AnimatedSprite2D" unique_id=1196985909]
+position = Vector2(-32.35682, -473.66644)
+rotation = -0.11170107
+scale = Vector2(0.39965415, 0.32489738)
+texture = ExtResource("25_47qyo")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=576096534]
+collision_mask = 4
+script = ExtResource("21_wh1ms")
+
+[node name="Half" type="CollisionShape2D" parent="Area2D" unique_id=835833482]
+position = Vector2(191, 189)
+shape = SubResource("SegmentShape2D_2ynyx")

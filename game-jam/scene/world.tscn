@@ -1,0 +1,122 @@
+[gd_scene format=4 uid="uid://ds0h4nvuf56ay"]
+
+[ext_resource type="Script" uid="uid://bbo6q5qloi2di" path="res://script/world.gd" id="1_emkrx"]
+[ext_resource type="PackedScene" uid="uid://cb84joushd82x" path="res://scene/player.tscn" id="1_m5mgf"]
+[ext_resource type="PackedScene" uid="uid://bj25k1pwrrgcf" path="res://scene/projectile.tscn" id="2_emkrx"]
+[ext_resource type="PackedScene" uid="uid://d3m6c4je48grl" path="res://scene/enemy.tscn" id="3_0tg4p"]
+[ext_resource type="PackedScene" uid="uid://be42w1k43wnax" path="res://scene/hud.tscn" id="4_hcb8y"]
+[ext_resource type="Texture2D" uid="uid://n3b5tkdvnp1o" path="res://icon.svg" id="6_0tg4p"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_gv5m4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gv5m4"]
+size = Vector2(1000, 40)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hcb8y"]
+texture = ExtResource("6_0tg4p")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_y3jn2"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_hcb8y")
+
+[node name="World" type="Node2D" unique_id=145515914]
+script = ExtResource("1_emkrx")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=31187634]
+visible = false
+position = Vector2(1, 150)
+physics_material_override = SubResource("PhysicsMaterial_gv5m4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1133619402]
+position = Vector2(500, 20)
+shape = SubResource("RectangleShape2D_gv5m4")
+debug_color = Color(0, 0.62474024, 0.529207, 0.41960785)
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=761650604]
+offset_right = 1000.0
+offset_bottom = 40.0
+color = Color(0.6106145, 1, 0.343426, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=481926638]
+visible = false
+position = Vector2(67.00001, 187.00002)
+rotation = -1.5550884
+physics_material_override = SubResource("PhysicsMaterial_gv5m4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=851266858]
+position = Vector2(500, 20)
+shape = SubResource("RectangleShape2D_gv5m4")
+debug_color = Color(0, 0.62474024, 0.529207, 0.41960785)
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D2" unique_id=1703865930]
+offset_left = -19.997543
+offset_top = 0.31414795
+offset_right = 980.00244
+offset_bottom = 40.314148
+color = Color(0.6106145, 1, 0.343426, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=355991793]
+visible = false
+position = Vector2(278.00003, 197)
+rotation = -1.5550884
+physics_material_override = SubResource("PhysicsMaterial_gv5m4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=1790729644]
+position = Vector2(500, 20)
+shape = SubResource("RectangleShape2D_gv5m4")
+debug_color = Color(0, 0.62474024, 0.529207, 0.41960785)
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D3" unique_id=2004655083]
+offset_right = 1000.0
+offset_bottom = 40.0
+color = Color(0.6106145, 1, 0.343426, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Player" parent="." unique_id=1096446625 instance=ExtResource("1_m5mgf")]
+position = Vector2(114, 141)
+projectile_scene = ExtResource("2_emkrx")
+
+[node name="enemy" parent="." unique_id=1666594865 instance=ExtResource("3_0tg4p")]
+position = Vector2(272, 142)
+
+[node name="HUD" parent="." unique_id=204380625 instance=ExtResource("4_hcb8y")]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=951688539]
+tile_map_data = PackedByteArray("AAABAAUAAAACAAIAAAABAAYAAAACAAEAAAABAAcAAAACAAIAAAABAAgAAAACAAMAAAACAAUAAAADAAIAAAACAAYAAAABAAEAAAACAAcAAAABAAIAAAACAAgAAAABAAMAAAADAAUAAAACAAAAAAADAAYAAAACAAEAAAADAAcAAAACAAIAAAADAAgAAAACAAMAAAAEAAUAAAACAAAAAAAEAAYAAAABAAEAAAAEAAcAAAABAAIAAAAEAAgAAAABAAMAAAAFAAUAAAACAAAAAAAFAAYAAAACAAEAAAAFAAcAAAACAAIAAAAFAAgAAAACAAMAAAAGAAUAAAABAAAAAAAGAAYAAAABAAEAAAAGAAcAAAABAAIAAAAGAAgAAAABAAMAAAAHAAUAAAACAAAAAAAHAAYAAAACAAEAAAAHAAcAAAACAAIAAAAHAAgAAAACAAMAAAAIAAUAAAACAAAAAAAIAAYAAAABAAEAAAAIAAcAAAABAAIAAAAIAAgAAAABAAMAAAAJAAUAAAACAAAAAAAJAAYAAAACAAEAAAAJAAcAAAACAAIAAAAJAAgAAAACAAMAAAAKAAUAAAABAAIAAAAKAAYAAAABAAEAAAAKAAcAAAABAAIAAAAKAAgAAAABAAMAAAALAAUAAAACAAIAAAALAAYAAAACAAEAAAALAAcAAAACAAIAAAALAAgAAAACAAMAAAAMAAUAAAADAAIAAAAMAAYAAAADAAEAAAAMAAcAAAADAAIAAAAMAAgAAAADAAMAAAAJAAEAAAAAAAAAAAAJAAIAAAAAAAEAAAAJAAMAAAAAAAIAAAAJAAQAAAAAAAEAAAAKAAEAAAABAAAAAAAKAAIAAAABAAEAAAAKAAMAAAABAAIAAAAKAAQAAAABAAEAAAALAAEAAAACAAAAAAALAAIAAAACAAEAAAALAAMAAAACAAIAAAALAAQAAAACAAEAAAAMAAEAAAADAAAAAAAMAAIAAAADAAEAAAAMAAMAAAADAAIAAAAMAAQAAAADAAEAAAD//wEAAAAAAAAAAAD//wIAAAAAAAEAAAD//wMAAAAAAAEAAAD//wQAAAAAAAEAAAAAAAEAAAABAAAAAAAAAAIAAAABAAEAAAAAAAMAAAABAAIAAAAAAAQAAAABAAEAAAABAAEAAAACAAAAAAABAAIAAAACAAEAAAABAAMAAAACAAIAAAABAAQAAAACAAEAAAACAAEAAAADAAAAAAACAAIAAAADAAEAAAACAAMAAAADAAIAAAACAAQAAAADAAIAAAAAAAUAAAABAAIAAAD//wUAAAAAAAIAAAD//wYAAAAAAAEAAAD//wcAAAAAAAIAAAD//wgAAAAAAAMAAAAAAAYAAAABAAEAAAAAAAcAAAABAAIAAAAAAAgAAAABAAMAAAA=")
+tile_set = SubResource("TileSet_y3jn2")

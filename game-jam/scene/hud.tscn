@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://be42w1k43wnax"]
+
+[ext_resource type="Script" uid="uid://c8v1dtp7dfw8w" path="res://script/hud.gd" id="1_37p78"]
+[ext_resource type="Texture2D" uid="uid://dfcaqy70kaflf" path="res://image/player/IMG_0996.png" id="3_pvgpj"]
+
+[node name="HUD" type="CanvasLayer" unique_id=2064486473]
+script = ExtResource("1_37p78")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1688821407]
+visible = false
+anchors_preset = -1
+anchor_left = 0.033
+anchor_top = 0.869
+anchor_right = 0.22500001
+anchor_bottom = 0.94400007
+offset_left = -0.11999893
+offset_top = 0.16000366
+offset_bottom = 0.15997314
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1016190211]
+anchors_preset = -1
+anchor_top = 0.84300005
+anchor_right = 0.24700001
+anchor_bottom = 0.98700005
+offset_left = 2.0
+offset_top = -0.2640381
+offset_right = 1603.456
+offset_bottom = 532.42395
+grow_vertical = 0
+scale = Vector2(0.15, 0.15)
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=773143738]
+custom_minimum_size = Vector2(500, 400)
+layout_mode = 2
+texture = ExtResource("3_pvgpj")
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer" unique_id=470408908]
+custom_minimum_size = Vector2(500, 40)
+layout_mode = 2
+texture = ExtResource("3_pvgpj")
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer" unique_id=1829580135]
+custom_minimum_size = Vector2(500, 40)
+layout_mode = 2
+texture = ExtResource("3_pvgpj")

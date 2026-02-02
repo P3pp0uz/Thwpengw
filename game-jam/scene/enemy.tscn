@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3m6c4je48grl"]
+
+[ext_resource type="Script" uid="uid://dx51d08ivdtdh" path="res://script/enemy.gd" id="1_4gyqm"]
+[ext_resource type="Script" uid="uid://b4tibsi1bdl4d" path="res://script/health_component.gd" id="1_7k104"]
+[ext_resource type="AudioStream" uid="uid://ciaewiwpcdtug" path="res://suoni/ExplosionSound.wav" id="3_8u16h"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4gyqm"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4gyqm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qi2p4"]
+radius = 11.0
+height = 32.0
+
+[node name="enemy" type="CharacterBody2D"]
+modulate = Color(0.76455146, 0, 0.21551201, 1)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_4gyqm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_4gyqm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.576278e-07, -4.7683716e-07)
+scale = Vector2(12, 26)
+texture = SubResource("PlaceholderTexture2D_4gyqm")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("1_7k104")
+max_health = 3
+metadata/_custom_type_script = "uid://b4tibsi1bdl4d"
+
+[node name="DamageArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+shape = SubResource("CapsuleShape2D_qi2p4")
+debug_color = Color(0.5523883, 0.4009021, 1, 0.41960785)
+
+[node name="ExplosionSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8u16h")
+
+[connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]

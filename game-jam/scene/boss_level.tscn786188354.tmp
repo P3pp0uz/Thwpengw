@@ -1,0 +1,174 @@
+[gd_scene format=3 uid="uid://c1qmqixmtfx5r"]
+
+[ext_resource type="Texture2D" uid="uid://n3b5tkdvnp1o" path="res://icon.svg" id="1_ddldd"]
+[ext_resource type="Script" uid="uid://dabaaijsftoqh" path="res://scene/boss_level.gd" id="1_oatxi"]
+[ext_resource type="PackedScene" uid="uid://dr06m1xqn1gvo" path="res://scene/boss.tscn" id="2_wp82y"]
+[ext_resource type="Script" uid="uid://05vykvt3waej" path="res://script/moving_cloud.gd" id="2_yqlre"]
+[ext_resource type="PackedScene" uid="uid://cb84joushd82x" path="res://scene/player.tscn" id="3_ddldd"]
+[ext_resource type="PackedScene" uid="uid://be42w1k43wnax" path="res://scene/hud.tscn" id="3_ylr3k"]
+[ext_resource type="PackedScene" uid="uid://bj25k1pwrrgcf" path="res://scene/projectile.tscn" id="5_ddhy2"]
+[ext_resource type="Script" uid="uid://fm3vu114dsht" path="res://script/kill_zone.gd" id="5_yqlre"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aio8c"]
+size = Vector2(61.5, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wp82y"]
+size = Vector2(850, 77)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kuykp"]
+size = Vector2(30, 355)
+
+[node name="BossLevel" type="Node2D" unique_id=2013146267]
+script = ExtResource("1_oatxi")
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=170879779]
+layer = -100
+
+[node name="ColorRect" type="ColorRect" parent="BackgroundLayer" unique_id=965566662]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(4.9093364e-06, 0.78255534, 0.78272027, 1)
+
+[node name="Piattaforma" type="AnimatableBody2D" parent="." unique_id=1461888416]
+position = Vector2(195, 121)
+sync_to_physics = false
+script = ExtResource("2_yqlre")
+speed = 100.0
+reset_x = 100.0
+respawn_x = 640.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piattaforma" unique_id=991320695]
+position = Vector2(-2.75, 0)
+shape = SubResource("RectangleShape2D_aio8c")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Piattaforma" unique_id=1568833762]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_ddldd")
+
+[node name="HUD" parent="." unique_id=2064486473 instance=ExtResource("3_ylr3k")]
+
+[node name="Piattaforma4" type="AnimatableBody2D" parent="." unique_id=453535593]
+position = Vector2(278, 197)
+sync_to_physics = false
+script = ExtResource("2_yqlre")
+speed = 100.0
+reset_x = 100.0
+respawn_x = 640.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piattaforma4" unique_id=381314093]
+shape = SubResource("RectangleShape2D_aio8c")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Piattaforma4" unique_id=1472829463]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_ddldd")
+
+[node name="Piattaforma2" type="AnimatableBody2D" parent="." unique_id=1164234260]
+position = Vector2(355, 121)
+sync_to_physics = false
+script = ExtResource("2_yqlre")
+speed = 100.0
+reset_x = 100.0
+respawn_x = 640.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piattaforma2" unique_id=2052989489]
+shape = SubResource("RectangleShape2D_aio8c")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Piattaforma2" unique_id=2044127724]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_ddldd")
+
+[node name="Piattaforma3" type="AnimatableBody2D" parent="." unique_id=1372776032]
+position = Vector2(428, 197)
+sync_to_physics = false
+script = ExtResource("2_yqlre")
+speed = 100.0
+reset_x = 100.0
+respawn_x = 640.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piattaforma3" unique_id=718893575]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_aio8c")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Piattaforma3" unique_id=1385583017]
+position = Vector2(2, 0)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_ddldd")
+
+[node name="Piattaforma6" type="AnimatableBody2D" parent="." unique_id=185670673]
+position = Vector2(505, 117)
+sync_to_physics = false
+script = ExtResource("2_yqlre")
+speed = 100.0
+reset_x = 100.0
+respawn_x = 640.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piattaforma6" unique_id=1448471141]
+shape = SubResource("RectangleShape2D_aio8c")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Piattaforma6" unique_id=1924837172]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_ddldd")
+
+[node name="Piattaforma5" type="AnimatableBody2D" parent="." unique_id=1127229499]
+position = Vector2(576, 195)
+sync_to_physics = false
+script = ExtResource("2_yqlre")
+speed = 100.0
+reset_x = 100.0
+respawn_x = 640.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piattaforma5" unique_id=748917041]
+position = Vector2(-0.4000244, 0.6000061)
+shape = SubResource("RectangleShape2D_aio8c")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Piattaforma5" unique_id=1582196146]
+position = Vector2(-0.4000244, 0.6000061)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_ddldd")
+
+[node name="KillZone" type="Area2D" parent="." unique_id=388017724]
+position = Vector2(316, 317)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("5_yqlre")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" unique_id=1459112707]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_wp82y")
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=568700695]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=153092044]
+position = Vector2(15, 178.5)
+shape = SubResource("RectangleShape2D_kuykp")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=784524659]
+position = Vector2(627, 178)
+shape = SubResource("RectangleShape2D_kuykp")
+
+[node name="Boss" parent="." unique_id=609070029 instance=ExtResource("2_wp82y")]
+position = Vector2(-2, 166)
+
+[node name="Player" parent="." unique_id=1231731391 instance=ExtResource("3_ddldd")]
+position = Vector2(354, 59)
+speed = null
+projectile_scene = ExtResource("5_ddhy2")
+fire_rate = null
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=198566912]
+position = Vector2(319, 178)
+scale = Vector2(-1, -1)
+
+[node name="RespawnPoint" type="Marker2D" parent="." unique_id=1750069099 groups=["RespawnPoint"]]
+position = Vector2(356, 13)
+
+[connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]

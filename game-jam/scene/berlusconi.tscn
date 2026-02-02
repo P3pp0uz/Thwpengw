@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://dft2yshqfo0dh"]
+
+[ext_resource type="Script" uid="uid://du7qqqj0ue0du" path="res://script/berlusconi.gd" id="1_a4cfb"]
+[ext_resource type="Texture2D" uid="uid://gk6ughyixmon" path="res://image/berlusconi/Berlusca-6.png" id="2_042q4"]
+[ext_resource type="Texture2D" uid="uid://cchyngj326wad" path="res://image/berlusconi/Berlusc-1.png" id="2_a4cfb"]
+[ext_resource type="Texture2D" uid="uid://u40x8pvs2kix" path="res://image/berlusconi/Berlusc-2.png" id="3_a4jra"]
+[ext_resource type="Texture2D" uid="uid://l8c10lswbor" path="res://image/berlusconi/Berlusca-7.png" id="3_uoi7q"]
+[ext_resource type="Texture2D" uid="uid://rjxgvaiyoruv" path="res://image/berlusconi/Berlusc-3.png" id="4_0mynr"]
+[ext_resource type="Texture2D" uid="uid://cngh4oxo0504s" path="res://image/berlusconi/Berlusca-8.png" id="4_jancd"]
+[ext_resource type="Texture2D" uid="uid://td16rwfc4y8k" path="res://image/berlusconi/Berlusc-4.png" id="5_2unld"]
+[ext_resource type="Texture2D" uid="uid://docfbf5urqwoc" path="res://image/berlusconi/Berlusca-9.png" id="5_v2568"]
+[ext_resource type="Texture2D" uid="uid://b6eva60se1m43" path="res://image/berlusconi/Berlusca-10.png" id="6_4rgyt"]
+[ext_resource type="Texture2D" uid="uid://cf3f0s5a7axfj" path="res://image/berlusconi/Berlusc-5.png" id="6_e51j5"]
+[ext_resource type="PackedScene" uid="uid://cyunra6m438v1" path="res://scene/health_component.tscn" id="6_x7fn5"]
+[ext_resource type="Texture2D" uid="uid://drnbu5gwv5wek" path="res://image/berlusconi/Berlusca-11.png" id="7_ljtuo"]
+[ext_resource type="AudioStream" uid="uid://5m4wlgoua3bd" path="res://suoni/TecnoBerlusconiDub.mp3" id="8_a4jra"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e51j5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_042q4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uoi7q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jancd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_v2568")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4rgyt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ljtuo")
+}],
+"loop": false,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_a4cfb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_a4jra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0mynr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2unld")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_e51j5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nbobp"]
+size = Vector2(525.0001, 289.99982)
+
+[node name="Berlusconi" type="CharacterBody2D" unique_id=1255081874]
+z_index = -3
+scale = Vector2(0.2, 0.2)
+collision_layer = 4
+script = ExtResource("1_a4cfb")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1718950607]
+z_index = -5
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_e51j5")
+animation = &"death"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1313228593]
+position = Vector2(-22.499996, -589.9997)
+scale = Vector2(0.9999994, 0.9999994)
+shape = SubResource("RectangleShape2D_nbobp")
+
+[node name="HealthComponent" parent="." unique_id=665251729 instance=ExtResource("6_x7fn5")]
+max_health = 99
+
+[node name="LeftRespawnTimer" type="Timer" parent="." unique_id=404151915]
+wait_time = 10.0
+one_shot = true
+
+[node name="RightRespawnTimer" type="Timer" parent="." unique_id=856273453]
+wait_time = 10.0
+one_shot = true
+
+[node name="FlyKickTimer" type="Timer" parent="." unique_id=794720890]
+wait_time = 2.0
+autostart = true
+
+[node name="IntroSound" type="AudioStreamPlayer" parent="." unique_id=183594158]
+stream = ExtResource("8_a4jra")
+
+[connection signal="timeout" from="FlyKickTimer" to="." method="_on_fly_kick_timer_timeout"]

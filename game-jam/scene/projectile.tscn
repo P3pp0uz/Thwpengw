@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bj25k1pwrrgcf"]
+
+[ext_resource type="Script" uid="uid://slknyb8q2nt7" path="res://script/projectile.gd" id="1_a85iw"]
+[ext_resource type="Texture2D" uid="uid://sxs5hb47cick" path="res://image/berlusconi/Proiettile.png" id="2_u6xv6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a85iw"]
+
+[node name="Projectile" type="Area2D" unique_id=562071855]
+z_index = 10
+collision_layer = 8
+collision_mask = 5
+script = ExtResource("1_a85iw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=956927644]
+shape = SubResource("CircleShape2D_a85iw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1996447548]
+position = Vector2(-4.7683716e-07, -0.50000095)
+scale = Vector2(0.1, 0.125)
+texture = ExtResource("2_u6xv6")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=754593271]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

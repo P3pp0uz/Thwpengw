@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cpr3tjpeoaaq6"]
+
+[ext_resource type="Script" uid="uid://dlf5gkgo1l5lh" path="res://script/boss_fireball.gd" id="1_67vuq"]
+[ext_resource type="Texture2D" uid="uid://bcuc6aua2m8wd" path="res://image/papa/proiettile_papa.png" id="2_r0acu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_klf6k"]
+radius = 41.0
+height = 118.0
+
+[node name="boss_fireball" type="Area2D" unique_id=1302825557]
+z_index = 10
+scale = Vector2(0.3, 0.3)
+collision_layer = 16
+collision_mask = 3
+script = ExtResource("1_67vuq")
+speed = 1000
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1140640]
+position = Vector2(-35, 1)
+shape = SubResource("CapsuleShape2D_klf6k")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2070916207]
+position = Vector2(5.9999995, -0.50000095)
+texture = ExtResource("2_r0acu")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=987101470]
+position = Vector2(-66, -46)
+rect = Rect2(-10, -11, 83, 119)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

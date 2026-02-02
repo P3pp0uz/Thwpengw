@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dr1sifd5trfh"]
+
+[ext_resource type="Script" uid="uid://b7hwtrfxa11vb" path="res://script/main_menu.gd" id="1_3er1b"]
+
+[node name="MainMenu" type="Control" unique_id=1254309680]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3er1b")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1512072073]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.001535756, 0.18202299, 0.71077716, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=584422571]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=313162479]
+layout_mode = 2
+text = "Titolo"
+horizontal_alignment = 1
+
+[node name="PlayButton" type="Button" parent="VBoxContainer" unique_id=55892573]
+layout_mode = 2
+text = "Gioca"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=917804376]
+layout_mode = 2
+text = "Chiudi"
+
+[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

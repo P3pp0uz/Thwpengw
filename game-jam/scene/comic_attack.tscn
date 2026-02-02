@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://mwkm6bk7dyqr"]
+
+[ext_resource type="Texture2D" uid="uid://dhkpnuhhtqtbf" path="res://image/berlusconi/bungaunga.png" id="1_1xr3l"]
+[ext_resource type="Script" uid="uid://mo1it7pkj0j8" path="res://script/comic_attack.gd" id="1_nb5cq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1xr3l"]
+size = Vector2(360, 275)
+
+[node name="comicAttack" type="Area2D" unique_id=1058197866]
+scale = Vector2(0.4, 0.4)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_nb5cq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1662945313]
+position = Vector2(26.100006, -37.299995)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_1xr3l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2061972027]
+position = Vector2(2.1000042, 2.7000084)
+shape = SubResource("RectangleShape2D_1xr3l")

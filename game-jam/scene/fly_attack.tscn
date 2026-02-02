@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://4tnurpqakok0"]
+
+[ext_resource type="Script" uid="uid://endqinh10d0p" path="res://script/fly_attack.gd" id="1_jjnv6"]
+[ext_resource type="Texture2D" uid="uid://dqvceh7kwg651" path="res://image/berlusconi/gamba_3.png" id="2_cpt7j"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s734a"]
+radius = 17.333336
+height = 244.6023
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lwbnm"]
+radius = 6.666565
+height = 39.999207
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cpt7j"]
+radius = 2.6489983
+height = 72.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mgvax"]
+height = 95.20813
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fa525"]
+radius = 25.333332
+height = 237.33334
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p4g8e"]
+radius = 44.710953
+height = 169.88795
+
+[node name="FlyAttack" type="Area2D" unique_id=397549768 groups=["FallingKick"]]
+z_index = -2
+scale = Vector2(0.75, 0.75)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_jjnv6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=251872235]
+rotation = 0.49741885
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_cpt7j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=253602340]
+position = Vector2(54.666668, 130.66667)
+rotation = -0.19198622
+shape = SubResource("CapsuleShape2D_s734a")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1803330859]
+position = Vector2(97.333336, 242.66666)
+rotation = -1.2025318
+shape = SubResource("CapsuleShape2D_lwbnm")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=340749282]
+position = Vector2(17.333332, 202.66667)
+rotation = 0.07679449
+shape = SubResource("CapsuleShape2D_cpt7j")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="." unique_id=1586219646]
+position = Vector2(45.33333, 198.66666)
+rotation = -0.27052602
+shape = SubResource("CapsuleShape2D_mgvax")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="." unique_id=1591794962]
+position = Vector2(50.666668, -10.666664)
+shape = SubResource("CapsuleShape2D_fa525")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="." unique_id=1790580854]
+position = Vector2(-9.536743e-07, -168.00002)
+rotation = -0.5742133
+shape = SubResource("CapsuleShape2D_p4g8e")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,172 @@
+[gd_scene format=3 uid="uid://c1qmqixmtfx5r"]
+
+[ext_resource type="Script" uid="uid://05vykvt3waej" path="res://script/moving_cloud.gd" id="1_qlock"]
+[ext_resource type="Texture2D" uid="uid://cekm5t1qhs3eh" path="res://image/papa/sfondo_papa.png" id="1_xl7id"]
+[ext_resource type="Texture2D" uid="uid://c76tcwniuaak7" path="res://image/papa/Platform-1.png" id="2_xl7id"]
+[ext_resource type="PackedScene" uid="uid://be42w1k43wnax" path="res://scene/hud.tscn" id="3_ivb4d"]
+[ext_resource type="Texture2D" uid="uid://c50pkrlvtrajj" path="res://image/papa/Platform-2.png" id="4_gd2qn"]
+[ext_resource type="Texture2D" uid="uid://bc366cs1jyfmx" path="res://image/papa/Platform-3.png" id="5_jl6tr"]
+[ext_resource type="Script" uid="uid://fm3vu114dsht" path="res://script/kill_zone.gd" id="6_kjn2q"]
+[ext_resource type="PackedScene" uid="uid://dr06m1xqn1gvo" path="res://scene/papa.tscn" id="7_kku6j"]
+[ext_resource type="PackedScene" uid="uid://cb84joushd82x" path="res://scene/player.tscn" id="8_e0vy7"]
+[ext_resource type="PackedScene" uid="uid://bj25k1pwrrgcf" path="res://scene/projectile.tscn" id="9_b37v6"]
+[ext_resource type="Texture2D" uid="uid://btkynktu02f5f" path="res://image/papa/sloth.PNG" id="9_ivb4d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aio8c"]
+size = Vector2(202.49988, 51)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wp82y"]
+size = Vector2(1158, 130.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kuykp"]
+size = Vector2(62, 554.5)
+
+[node name="boss_papa" type="Node2D" unique_id=2013146267]
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=170879779]
+layer = -100
+
+[node name="TextureRect" type="TextureRect" parent="BackgroundLayer" unique_id=746841450]
+offset_right = 1165.0
+offset_bottom = 654.0
+texture = ExtResource("1_xl7id")
+expand_mode = 1
+
+[node name="Piattaforma" type="CharacterBody2D" parent="." unique_id=1505556152]
+position = Vector2(564.00006, 252)
+scale = Vector2(0.7, 0.7)
+collision_mask = 0
+script = ExtResource("1_qlock")
+reset_x = 370.0
+respawn_x = 1100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piattaforma" unique_id=991320695]
+position = Vector2(-2.75, 0)
+shape = SubResource("RectangleShape2D_aio8c")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Piattaforma" unique_id=1568833762]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_xl7id")
+
+[node name="HUD" parent="." unique_id=2064486473 instance=ExtResource("3_ivb4d")]
+
+[node name="Piattaforma4" type="CharacterBody2D" parent="." unique_id=1539648822]
+position = Vector2(749.00006, 401.00003)
+scale = Vector2(0.65, 0.65)
+collision_mask = 0
+script = ExtResource("1_qlock")
+reset_x = 370.0
+respawn_x = 1100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piattaforma4" unique_id=381314093]
+position = Vector2(3.75, -0.50006104)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_aio8c")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Piattaforma4" unique_id=1472829463]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_gd2qn")
+
+[node name="Piattaforma2" type="CharacterBody2D" parent="." unique_id=1034940181]
+position = Vector2(831, 257)
+scale = Vector2(0.65, 0.65)
+collision_mask = 0
+script = ExtResource("1_qlock")
+reset_x = 370.0
+respawn_x = 1100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piattaforma2" unique_id=2052989489]
+shape = SubResource("RectangleShape2D_aio8c")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Piattaforma2" unique_id=2044127724]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_jl6tr")
+
+[node name="Piattaforma3" type="CharacterBody2D" parent="." unique_id=1163657716]
+position = Vector2(1004.00006, 411.00003)
+scale = Vector2(0.65, 0.65)
+collision_mask = 0
+script = ExtResource("1_qlock")
+reset_x = 370.0
+respawn_x = 1100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piattaforma3" unique_id=718893575]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_aio8c")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Piattaforma3" unique_id=1385583017]
+position = Vector2(2, 0)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_xl7id")
+
+[node name="Piattaforma5" type="CharacterBody2D" parent="." unique_id=1105537015]
+position = Vector2(493.00003, 405.00003)
+scale = Vector2(0.65, 0.65)
+collision_mask = 0
+script = ExtResource("1_qlock")
+reset_x = 370.0
+respawn_x = 1100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piattaforma5" unique_id=1297330910]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_aio8c")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Piattaforma5" unique_id=1816173052]
+position = Vector2(2, 0)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_xl7id")
+
+[node name="Piattaforma6" type="CharacterBody2D" parent="." unique_id=801137079]
+position = Vector2(1060, 253.99998)
+scale = Vector2(0.55, 0.55)
+collision_mask = 0
+script = ExtResource("1_qlock")
+reset_x = 370.0
+respawn_x = 1100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piattaforma6" unique_id=1448471141]
+shape = SubResource("RectangleShape2D_aio8c")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Piattaforma6" unique_id=1924837172]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_gd2qn")
+
+[node name="KillZone" type="Area2D" parent="." unique_id=388017724]
+position = Vector2(316, 317)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("6_kjn2q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" unique_id=1459112707]
+position = Vector2(262, 262.25)
+shape = SubResource("RectangleShape2D_wp82y")
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=568700695]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=153092044]
+position = Vector2(41, 263)
+shape = SubResource("RectangleShape2D_kuykp")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=784524659]
+position = Vector2(1131, 276.75)
+shape = SubResource("RectangleShape2D_kuykp")
+
+[node name="Boss" parent="." unique_id=609070029 instance=ExtResource("7_kku6j")]
+position = Vector2(222.00005, 282)
+win_screen_image = ExtResource("9_ivb4d")
+
+[node name="Player" parent="." unique_id=1231731391 instance=ExtResource("8_e0vy7")]
+position = Vector2(633, 114)
+projectile_scene = ExtResource("9_b37v6")
+dash_speed = 1000.0
+
+[node name="RespawnPoint" type="Marker2D" parent="." unique_id=1750069099 groups=["RespawnPoint"]]
+position = Vector2(696, 11)
+
+[connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]

@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://cb84joushd82x"]
+
+[ext_resource type="Script" uid="uid://tw8xtoyvt0gg" path="res://script/player.gd" id="1_4flbx"]
+[ext_resource type="Texture2D" uid="uid://c1djl7lalq4qn" path="res://image/player/walking_2.png" id="2_hp4bs"]
+[ext_resource type="Script" uid="uid://b4tibsi1bdl4d" path="res://script/health_component.gd" id="2_onrkg"]
+[ext_resource type="Texture2D" uid="uid://d3fi7jleqw2cs" path="res://image/player/walking_1.png" id="3_g2vtq"]
+[ext_resource type="Texture2D" uid="uid://mnx4bhtsoi8k" path="res://image/player/Penguin_shoot_side-1.png" id="3_ihjo1"]
+[ext_resource type="Texture2D" uid="uid://c0e7b2ibp43da" path="res://image/player/walking_3.png" id="4_2fvbb"]
+[ext_resource type="Texture2D" uid="uid://du73wnn41bau0" path="res://image/player/Penguin_shoot_side-2.png" id="4_dk1vr"]
+[ext_resource type="Texture2D" uid="uid://c5xwatjsxcypu" path="res://image/player/Penguin_Dash_left-1.png" id="4_j4wxg"]
+[ext_resource type="Texture2D" uid="uid://cusv4w0kc00j" path="res://image/player/Penguin_Dash_left-2.png" id="5_bup7g"]
+[ext_resource type="Texture2D" uid="uid://bosjm8xihaklo" path="res://image/player/Penguin_shoot_up-1.png" id="5_ihjo1"]
+[ext_resource type="Texture2D" uid="uid://bbo3f1pceva5r" path="res://image/player/walking_4.png" id="5_ml7e8"]
+[ext_resource type="Texture2D" uid="uid://bgxldca7teadp" path="res://image/player/Penguin_Dash_left-3.png" id="6_4ja17"]
+[ext_resource type="Texture2D" uid="uid://cgh2ehmig60no" path="res://image/player/Penguin_shoot_up-2.png" id="6_dk1vr"]
+[ext_resource type="AudioStream" uid="uid://cypmwjdau1k26" path="res://suoni/Shoot.mp3" id="7_hp4bs"]
+[ext_resource type="Texture2D" uid="uid://dq7j21rkpslki" path="res://image/player/Penguin_Dash_left-4.png" id="7_v4iqv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_onrkg"]
+radius = 96.66661
+height = 313.33353
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ihjo1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_j4wxg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bup7g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4ja17")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_v4iqv")
+}],
+"loop": false,
+"name": &"dash",
+"speed": 60.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hp4bs")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ihjo1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dk1vr")
+}],
+"loop": true,
+"name": &"shoot_side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ihjo1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dk1vr")
+}],
+"loop": true,
+"name": &"shoot_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_g2vtq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_hp4bs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2fvbb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ml7e8")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D" unique_id=1814825663 groups=["Player"]]
+scale = Vector2(0.3, 0.3)
+collision_layer = 2
+script = ExtResource("1_4flbx")
+jump_velocity = -600.0
+fire_rate = 0.15
+dash_speed = 100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=61627465]
+position = Vector2(-390, -150.00003)
+shape = SubResource("CapsuleShape2D_onrkg")
+
+[node name="MuzzleLeft" type="Marker2D" parent="." unique_id=1895333869]
+position = Vector2(-603.3335, -270)
+
+[node name="HealthComponent" type="Node" parent="." unique_id=768222761]
+script = ExtResource("2_onrkg")
+has_invincibility_frames = true
+metadata/_custom_type_script = "uid://b4tibsi1bdl4d"
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=329676233]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[node name="ShootSound" type="AudioStreamPlayer" parent="." unique_id=300850820]
+stream = ExtResource("7_hp4bs")
+volume_db = -7.0
+max_polyphony = 10
+
+[node name="MuzzleUp" type="Marker2D" parent="." unique_id=53158929]
+position = Vector2(-480, -390)
+
+[node name="Visuals" type="Node2D" parent="." unique_id=1625177438]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals" unique_id=1383357208]
+position = Vector2(-396.667, -166.66669)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_ihjo1")
+animation = &"dash"
+frame = 3
+frame_progress = 1.0

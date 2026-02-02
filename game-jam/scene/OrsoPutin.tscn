@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://b88s75dm5jyn1"]
+
+[ext_resource type="Script" uid="uid://kpa6icrf6uyg" path="res://script/soccer_player.gd" id="1_mbtec"]
+[ext_resource type="Texture2D" uid="uid://bugnm7r48322i" path="res://image/berlusconi/putin1.png" id="2_mbtec"]
+[ext_resource type="Texture2D" uid="uid://h0nai10unqyk" path="res://image/berlusconi/putin2.png" id="3_1uudc"]
+[ext_resource type="Texture2D" uid="uid://de1b4oj3n3nla" path="res://image/berlusconi/putin3.png" id="4_6dsqq"]
+[ext_resource type="Texture2D" uid="uid://2qqi61l1fttt" path="res://image/berlusconi/putin4.png" id="5_11a3d"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tj51r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mbtec")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1uudc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6dsqq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_11a3d")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ekg81"]
+size = Vector2(319, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ok5xy"]
+size = Vector2(370, 243.33333)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mbtec"]
+size = Vector2(116.66667, 206.66666)
+
+[node name="SoccerPlayer" type="CharacterBody2D" unique_id=316582523]
+scale = Vector2(0.3, 0.3)
+collision_layer = 4
+script = ExtResource("1_mbtec")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2119226940]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_tj51r")
+animation = &"run"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1414805902]
+position = Vector2(-43.5, 237)
+shape = SubResource("RectangleShape2D_ekg81")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1136749828]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=249287901]
+position = Vector2(14.999991, 65)
+shape = SubResource("RectangleShape2D_ok5xy")
+debug_color = Color(1, 0, 0, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox" unique_id=523941410]
+position = Vector2(-5.000003, -93.33333)
+shape = SubResource("RectangleShape2D_mbtec")
+debug_color = Color(1, 0, 0, 0.41960785)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=488550708]
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

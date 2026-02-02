@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bhhe044cj137x"]
+
+[ext_resource type="VideoStream" uid="uid://dw0bj7pgckq7o" path="res://image/Penguin_intro.ogv" id="1_0f3wb"]
+[ext_resource type="Script" uid="uid://cokh5hy8dm4yn" path="res://scene/intro_video.gd" id="1_40cob"]
+
+[node name="IntroVideo" type="Control" unique_id=1205713698]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_40cob")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1508357974]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_0f3wb")
+autoplay = true
+expand = true
