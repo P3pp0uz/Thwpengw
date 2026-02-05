@@ -175,7 +175,7 @@ scale = Vector2(0.38752106, 0.38729024)
 texture = ExtResource("1_ymnsg")
 
 [node name="Statico" type="AnimatedSprite2D" parent="." unique_id=859557662]
-modulate = Color(1, 1, 1, 0.44705883)
+modulate = Color(1, 1, 1, 0.32941177)
 z_index = -2
 position = Vector2(584.625, 321.75)
 scale = Vector2(0.40160203, 0.40917262)

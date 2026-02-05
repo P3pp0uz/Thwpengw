@@ -24,6 +24,7 @@ var left_kick_instance = null
 var right_kick_instance = null
 
 signal phase_two_started
+signal end_boss
 
 @onready var health_component = $HealthComponent
 @onready var stomp_timer = $FlyKickTimer
@@ -36,6 +37,7 @@ func _ready():
 
 	health_component.on_damage.connect(check_phase)
 	health_component.on_death.connect(die)
+	health_component.on_damage.connect(_on_take_damage_visual)
 	
 	animated_sprite.play("default")
 	
@@ -57,6 +59,8 @@ func check_phase(amount):
 	# Controllo per entrare in fase 2
 	if current_phase == 1 and health_component.current_health <= (health_component.max_health / 2):
 		enter_phase_two()
+	elif health_component.current_health == 0:
+		end_boss.emit()
 
 func enter_phase_two():
 	if current_phase == 2: return # Evita doppi trigger
@@ -118,10 +122,13 @@ func _on_stomp_timer_timeout():
 # --- FUNZIONI DI SPAWN (Fase 1) ---
 func spawn_stomp_attack():
 	if not falling_kick_scene: return
-	var stomp = falling_kick_scene.instantiate()
-	get_parent().add_child(stomp)
-	var random_x = randf_range(arena_min_x, arena_max_x)
-	stomp.global_position = Vector2(random_x, spawn_y)
+	var player_node = get_tree().get_first_node_in_group("Player")
+	if player_node:
+		var stomp = falling_kick_scene.instantiate()	
+		get_parent().add_child(stomp)
+		var player_x = player_node.position.x - 150
+		stomp.global_position = Vector2(player_x, spawn_y)
+		
 	
 
 func spawn_left_kick():
@@ -226,6 +233,13 @@ func spawn_comic_attack():
 	else:
 		print("Non trovo il player per mirare!")
 		
+		
+func _on_take_damage_visual(amount):
+	var tween = create_tween()
+	modulate = Color(10, 10, 10, 1) # Flash Super Bianco
+	tween.tween_property(self, "modulate", Color(1, 1, 1, 1), 0.1)
+	
+	
 func die():
 	# 1. Ferma il boss
 	set_physics_process(false)

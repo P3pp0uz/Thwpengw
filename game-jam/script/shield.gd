@@ -45,12 +45,16 @@ func _deactivate():
 	if health_component:
 		health_component.is_invulnerable = false
 	
-	# Animazione di distruzione (se ne hai una "shrink" o "break")
-	if anim_player.has_animation("shrink"):
-		anim_player.play("shrink")
-		await anim_player.animation_finished
+	## Animazione di distruzione (se ne hai una "shrink" o "break")
+	#if anim_player.has_animation("shrink"):
+		#anim_player.play("shrink")
+		#await anim_player.animation_finished
 	
+	hide()
+	$CollisionShape2D.set_deferred("disabled", true)
+	
+	emit_signal("shield_destroyed")
 	visible = false
-	collision.disabled = true
+	#collision.disabled = true
 	shield_destroyed.emit()
 	anim_player.stop()

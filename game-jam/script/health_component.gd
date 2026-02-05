@@ -17,7 +17,6 @@ func _ready():
 	current_health = max_health
 
 func take_damage(amount):
-	# 1. CONTROLLO MIGLIORATO
 	# Se l'invincibilità è abilitata ED è attiva, ignora il danno.
 	if has_invincibility_frames and is_invincible:
 		return 

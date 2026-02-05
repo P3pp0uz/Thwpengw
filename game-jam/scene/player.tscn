@@ -15,6 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://cgh2ehmig60no" path="res://image/player/Penguin_shoot_up-2.png" id="6_dk1vr"]
 [ext_resource type="AudioStream" uid="uid://cypmwjdau1k26" path="res://suoni/Shoot.mp3" id="7_hp4bs"]
 [ext_resource type="Texture2D" uid="uid://dq7j21rkpslki" path="res://image/player/Penguin_Dash_left-4.png" id="7_v4iqv"]
+[ext_resource type="Texture2D" uid="uid://bw0owk1ams6tv" path="res://image/player/Penguin_shoot_walk_diagonal-1.png" id="9_42h83"]
+[ext_resource type="Texture2D" uid="uid://bbv741xc4jawq" path="res://image/player/Penguin_shoot_walk_diagonal-2.png" id="10_iuf2t"]
+[ext_resource type="Texture2D" uid="uid://ckd7oau05g4ci" path="res://image/player/Penguin_shoot_walk_diagonal-3.png" id="11_jrjdb"]
+[ext_resource type="Texture2D" uid="uid://csdohknq0668i" path="res://image/player/Penguin_shoot_walk_diagonal-4.png" id="12_kk4ol"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_onrkg"]
 radius = 96.66661
@@ -45,6 +49,23 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_42h83")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_iuf2t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_jrjdb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_kk4ol")
+}],
+"loop": true,
+"name": &"shoot_diag",
 "speed": 5.0
 }, {
 "frames": [{
@@ -126,6 +147,4 @@ position = Vector2(-480, -390)
 position = Vector2(-396.667, -166.66669)
 scale = Vector2(0.7, 0.7)
 sprite_frames = SubResource("SpriteFrames_ihjo1")
-animation = &"dash"
-frame = 3
-frame_progress = 1.0
+animation = &"shoot_diag"

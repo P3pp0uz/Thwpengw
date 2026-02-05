@@ -14,15 +14,16 @@ func _physics_process(delta):
 func _on_body_entered(body):
 	# 1. IMPATTO COL PLAYER
 	if body.is_in_group("Player"):
-		var health = body.get_node_or_null("HealthComponent")
 		
-		if health:
-			health.take_damage(damage)
-			
-			if body.has_method("apply_knockback"):
+		if body.has_method("apply_knockback"):
 				var direction = sign(body.global_position.x - global_position.x)
 				if direction == 0: direction = 1
 				body.apply_knockback(direction * knockback_force)
+
+		var health = body.get_node_or_null("HealthComponent")
+		if health:
+			health.take_damage(damage)
+			
 		
 		# Sparisce dopo aver colpito
 		queue_free()

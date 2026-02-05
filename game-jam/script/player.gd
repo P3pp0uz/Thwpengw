@@ -29,7 +29,7 @@ func _ready():
 	health_component.on_invincibility_changed.connect(_on_invincibility_changed)
 	# 1. Collega il segnale di morte alla funzione die()
 	health_component.on_death.connect(die)
-	
+
 func _on_invincibility_changed(is_active):
 	is_invincible_active = is_active
 	if is_active:

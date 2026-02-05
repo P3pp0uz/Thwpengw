@@ -32,6 +32,8 @@ offset_bottom = 654.0
 texture = ExtResource("1_xl7id")
 expand_mode = 1
 
+[node name="HUD" parent="." unique_id=2064486473 instance=ExtResource("3_ivb4d")]
+
 [node name="Piattaforma" type="CharacterBody2D" parent="." unique_id=1505556152]
 position = Vector2(564.00006, 252)
 scale = Vector2(0.7, 0.7)
@@ -48,8 +50,6 @@ one_way_collision = true
 [node name="Sprite2D" type="Sprite2D" parent="Piattaforma" unique_id=1568833762]
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_xl7id")
-
-[node name="HUD" parent="." unique_id=2064486473 instance=ExtResource("3_ivb4d")]
 
 [node name="Piattaforma4" type="CharacterBody2D" parent="." unique_id=1539648822]
 position = Vector2(749.00006, 401.00003)

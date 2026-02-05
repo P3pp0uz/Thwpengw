@@ -50,10 +50,11 @@ func _physics_process(delta):
 func _on_hitbox_body_entered(body):
 	if body.is_in_group("Player"):
 		var health = body.get_node_or_null("HealthComponent")
+		if body.has_method("apply_knockback"):
+				body.apply_knockback(direction * knockback_force)
 		if health:
 			health.take_damage(damage)
-			if body.has_method("apply_knockback"):
-				body.apply_knockback(direction * knockback_force)
+			
 
 func _on_screen_exited():
 	queue_free()
